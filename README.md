@@ -1,4 +1,6 @@
-# Vue.js 2.0 from scratch
+# これから始める Vue.js 2.0
+
+本リポジトリでは、『[これから始めるVue.js 2.0 | CodeGrid](https://app.codegrid.net/series/2016-vue)』を写経しています。
 
 ## Installation
 
