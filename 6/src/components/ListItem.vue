@@ -1,5 +1,5 @@
 <template>
-  <div class="list-item">
+  <div class="list-item" @click="select(memo.id)">
     <div>
       <span>id</span>
       <span>{{memo.id}}</span>
@@ -19,7 +19,7 @@
       </span>
     </div>
     <div>
-      <button @click="remove(memo.id)">Delete</button>
+      <button @click.stop="remove(memo.id)">Delete</button>
     </div>
   </div>
 </template>
@@ -34,6 +34,9 @@ export default {
       // this.$parent(ListViewコンポーネント)に
       // 'remove' イベントをトリガーする
       this.$parent.$emit('remove', id)
+    },
+    select(id) {
+      this.$emit('select', id)
     }
   }
 }

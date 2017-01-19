@@ -5,7 +5,8 @@
       class="contents"
       :memos="memos"
       @add="add"
-      @remove="remove">
+      @remove="remove"
+      @update="update">
     </router-view>
   </div>
 </template>
@@ -21,13 +22,13 @@ export default {
         {
           id: 1,
           text: 'テスト',
-          date: '16-10-28',
+          date: '2016-10-28',
           tags: ['タグ1', 'タグ2']
         },
         {
           id: 2,
           text: 'テスト2',
-          date: '16-11-28',
+          date: '2016-11-28',
           tags: ['タグ2', 'タグ3']
         }
       ]
@@ -53,6 +54,13 @@ export default {
       })
       // this.memos から index にある要素を削除する
       this.memos.splice(index, 1)
+    },
+    update(data) {
+      const id = parseInt(data.id, 10)
+      const index = this.memos.findIndex((memo) => {
+        return memo.id === id
+      })
+      this.memos.splice(index, 1, data)
     }
   },
   components: {
